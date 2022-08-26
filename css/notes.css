@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+/* STYLES TO BODY */
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{background: #CF9FFF; }
+/* CONTAINER WHERE NOTES ARE WRITTEN */
+.container{width: 90%; min-width: 90%; position:relative; min-height: 100px; background: white; border-radius: 10px; margin: auto; } 
+/* CONTENT INSIDE CONTAINER */
+#task{position: relative; padding:  30px 20px; } 
+/* FOR TITLE INPUT */
+#task input{padding: 10px; position: relative; width: 70%; color: rgb(0, 0, 0); height: 40px; font-size: 1rem; border: 1px solid  purple; border-radius: 5px; font-family: 'Poppins', sans-serif; }
+#task input:focus{outline: none; }
+/* FOR ADDING NOTES */
+#task button{background-color: #741377; color: #fff; border: none; border-radius: 3px; float: right; padding: 10px; font-family: 'Poppins', sans-serif; cursor: pointer; }
+#task button:hover{background-color: blueviolet; }
+/* FOR WRITING NOTES */
+#task textarea{width: 100%; height: 150px; resize: none; margin:20px 0 ; font-family: 'Poppins', sans-serif; font-weight: 600; border: 1px solid purple; border-radius: 3px; padding: 2px;}
+#task textarea:focus{outline: none;}
+/* FOR DISPLAYING THE NOTES */
+
+/* CONTAINER WHERE NOTES ARE WRITTEN */
+.Display{width: 100%; display: flex; flex-wrap: wrap; padding-left: 30px; } 
+/* CONTENT INSIDE CONTAINER */
+#Displaytask{position: relative; padding:  20px; background-color: #fff; width:400px ; border-radius: 5px; border: 1px solid black; margin-left: 5px; margin-right: 5px; margin-bottom: 5px; }
+/* FOR TITLE INPUT */
+#Displaytask h3{padding: 10px; width: 100%; width: 70%; color: rgb(102, 5, 97); height: 30px; font-size: 1.5rem; font-family: 'Poppins', sans-serif; }
+#Displaytask input:focus{outline: none; }
+/* FOR ADDING NOTES */
+#Displaytask button{background-color: #741377; color: #fff; border: none; border-radius: 3px; float: right; padding: 10px; font-family: 'Poppins', sans-serif; cursor: pointer; }
+#Displaytask button:hover{
+    background-color: blueviolet;
+}
+/* FOR WRITING NOTES */ #Displaytask textarea{width: 100% ; height: 150px; resize: none; margin:10px 0 ; font-family: 'Poppins', sans-serif; font-weight: 600; border: 1px solid purple; border-radius: 3px; padding: 2px; } 
+#Displaytask textarea:focus{outline: none; }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/notes.css">
+  <title></title>
+</head>
+<body>
+<br>
+<div class="container">
+  <div id="task">
+    <input placeholder="Add title" type="title" id="title">
+    <button class="AddToDo"><i class="fa-solid fa-plus"></i> Add Notes </button>
+    <textarea type="text" name="notes" placeholder="write here..." id="notes"></textarea>
+  </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="Display"></div>
+<script>
+  let addTodo = document.querySelector('.AddToDo')
+showtodo()
+
+addTodo.addEventListener('click',function(e){
+ let todo= document.querySelector('#title');
+ let writeNote=document.querySelector("#notes")
+ let todolist = localStorage.getItem('todolist');
+ if (todolist===null){
+    todoObj=[]
+ }
+ else{
+todoObj=JSON.parse(todolist)
+ }
+ let myObj ={
+   title:todo.value,
+   text:writeNote.value
+ }
+    todoObj.push(myObj)
+    localStorage.setItem('todolist',JSON.stringify(todoObj))
+    todo.value=''
+    writeNote.value=''
+   showtodo(); 
+
+})
+function showtodo(){
+   let todolist=localStorage.getItem("todolist")
+   
+   if(todolist===null){
+       todoObj=[]
+   }
+   else{
+      todoObj=JSON.parse(todolist)
+   }  
+   let html='';
+   todoObj.forEach( function (element,index) {
+       html+=`<div id="Displaytask">
+         <h3>${element.title}</h3>
+        
+         <button  id=" ${index}" onclick="deletetodo()" class="AddToDo"><i class="fa-solid fa-trash"></i> Delete</button>
+          <textarea type="text" name="notes" placeholder="write here..." id="notes" > ${element.text} </textarea>
+       </div>
+      <br> 
+    
+   `
+
+   });
+
+   let notesElm = document.querySelector(".Display")
+   
+  
+   if(todoObj.length!=0){
+       notesElm.innerHTML=html;
+   
+   }
+   else{
+      
+    notesElm.innerHTML="<h3>Nothing to show here! Please, click on Add Notes to add your notes here</h3>"
+   notesElm.style.color=" #741377"
+   }
+   
+}
+
+function deletetodo(index){
+   // console.log("i amm deleting",index)
+   let todolist=localStorage.getItem("todolist")
+   
+   if(todolist===null){
+       todoObj=[]
+   }
+   else{
+      todoObj=JSON.parse(todolist)
+   }  
+   todoObj.splice(index,1) 
+   localStorage.setItem('todolist',JSON.stringify(todoObj))
+   showtodo()
+}
+
+</script>
+</body>
+</html>
